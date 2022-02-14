@@ -5,6 +5,7 @@
 
 // Home Page Style
 .home-page-style {
+  cursor: none;    // hide mouse layout
 
   .toggle-btn {
     background: none;
@@ -18,21 +19,6 @@
     justify-content: flex-end;
   }
 
-  .hero-title {
-    font-size: 96px;
-    line-height: 115.2px;
-    color: $black;
-    font-weight: 600;
-    margin-bottom: 40px;
-  }
-
-  .description {
-    font-size: 20px;
-    line-height: 1.8;
-    max-width: 90%;
-    color: rgba($textColor, 0.4);
-  }
-
   .hero-section {
     height: calc(100vh - 80px);
     display: flex;
@@ -41,6 +27,24 @@
     max-width: 70%;
     margin: 0 auto;
     // background-color: #f5f5f5;
+  }
+
+  .heading-sec {
+
+    h1 {
+      font-size: 96px;
+      line-height: 115.2px;
+      color: $black;
+      font-weight: bold;
+      margin-bottom: 0;
+    }
+  }
+
+  .description {
+    font-size: 24px;
+    line-height: 1.8;
+    max-width: 70%;
+    color: rgba($textColor, 0.4);
   }
 
   .video-sec {
@@ -55,10 +59,11 @@
     animation-fill-mode: forwards;
   }
 
-  @keyframes heightIncreaseAni1{
+  @keyframes heightIncreaseAni1 {
     from {
       height: 0;
     }
+
     to {
       height: 219px;
     }
@@ -72,10 +77,11 @@
     animation-fill-mode: forwards;
   }
 
-  @keyframes heightIncreaseAni2{
+  @keyframes heightIncreaseAni2 {
     from {
       height: 0;
     }
+
     to {
       height: 153px;
     }

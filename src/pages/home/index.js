@@ -1,7 +1,8 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import HeaderPrimary from "../../common/headerPrimary/headerPrimary";
 import posterHero from "../../assets/images/video-poster/poster-hero.svg"
+import AnimatedText from "../../common/animatedText";
 
 // Styles
 import "./styles.scss";
@@ -15,6 +16,23 @@ const HomeScreen = () => {
   setTimeout(() => {
     document.getElementById('vid').play();
   }, 2500);
+
+  const [replay, setReplay] = useState(true);
+  // Placeholder text data, as if from API
+  const headingText = [
+    { type: "heading1", text: "Leaders In" },
+    {
+      type: "heading1", text: "Design Strategy"
+    },
+  ];
+
+  const container = {
+    visible: {
+      transition: {
+        staggerChildren: 0.025
+      }
+    }
+  };
 
   return (
     <div className="home-page-style">
@@ -34,15 +52,20 @@ const HomeScreen = () => {
             </motion.div>
             <section className="hero-section">
               <motion.div
-                initial={{ opacity: 0, y: 80 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  ease: "easeInOut",
-                  duration: 1,
-                  delay: 0.4,
-                }}>
-                <h1 className="hero-title">Leaders In <br /> Design Strategy</h1>
+                className="App"
+                initial="hidden"
+                // animate="visible"
+                animate={replay ? "visible" : "hidden"}
+                variants={container}
+                className="heading-sec"
+              >
+                <div className="cursor-scale">
+                  {headingText.map((item, index) => {
+                    return <AnimatedText {...item} key={index} />;
+                  })}
+                </div>
               </motion.div>
+
               <motion.div
                 initial={{ opacity: 0, y: 80 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -51,7 +74,7 @@ const HomeScreen = () => {
                   duration: 1,
                   delay: 0.6,
                 }}>
-                <p className="description">
+                <p className="description cursor-scale">
                   We think in design and act in innovation, stirring the way people and technology interact.
                 </p>
               </motion.div>
@@ -65,9 +88,7 @@ const HomeScreen = () => {
                   delay: 0.6,
                 }}
                 className="video-sec"
-              // onClick={handlePlayVideo}
               >
-                {/* ref={vidRef if you click to play*/}
                 <video width="180" height="105" muted playsInline loop poster={posterHero} id="vid">
                   <source src="https://www.onething.design/wp-content/themes/tweentynineteen-child/assets/images/videos/showreel.mp4" type="video/mp4" />
                   Your browser does not support the video tag.

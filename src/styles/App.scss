@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('http://fonts.cdnfonts.com/css/neue-haas-grotesk-text-pro');
 
 // variables
 @import "./variables/colors";
@@ -10,7 +10,7 @@
 
 // custom css
 * {
-  font-family: 'Poppins', sans-serif !important;
+  font-family: 'Neue Haas Grotesk Text Pro', sans-serif !important;
 }
 
 ::selection {
@@ -133,4 +133,31 @@ body {
 
 .ant-layout-header {
   height: 70px;
+}
+
+// custom cursor style
+.cursor {
+  position: fixed;
+  width: 48px;
+  height: 48px;
+  margin-left: -20px;
+  margin-top: -20px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  transition: transform 0.3s ease;
+  transform-origin: center center;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.grow, .grow-small{
+  transform: scale(6);
+  mix-blend-mode:difference;
+  border: none;
+  // background: transparent;
+  background: rgba(#6B51E4, 0.3);
+}
+
+.grow-small{
+  transform: scale(2);
 }
